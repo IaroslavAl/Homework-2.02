@@ -37,6 +37,18 @@
                                     <constraint firstAttribute="width" secondItem="HPr-Ck-Mmk" secondAttribute="height" multiplier="1:1" id="L6M-TW-oiX"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhO-ZV-zKL">
+                                <rect key="frame" x="100" y="476" width="120" height="42"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="lightsSwitchAction" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOq-Ic-QlF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -48,14 +60,18 @@
                             <constraint firstItem="HPr-Ck-Mmk" firstAttribute="width" secondItem="eqJ-mG-M7N" secondAttribute="width" id="F1v-UJ-H5s"/>
                             <constraint firstItem="eqJ-mG-M7N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HGE-pA-bUu"/>
                             <constraint firstItem="eqJ-mG-M7N" firstAttribute="width" secondItem="eqJ-mG-M7N" secondAttribute="height" multiplier="1:1" id="Ij5-QQ-9Cy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="GhO-ZV-zKL" secondAttribute="bottom" constant="50" id="Lrj-ym-lz3"/>
                             <constraint firstItem="kvr-Jv-zbg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RKd-Ip-hHC"/>
                             <constraint firstItem="kvr-Jv-zbg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Tp2-dn-f9k"/>
                             <constraint firstItem="eqJ-mG-M7N" firstAttribute="top" secondItem="kvr-Jv-zbg" secondAttribute="bottom" constant="20" id="Xso-EJ-QQf"/>
+                            <constraint firstItem="GhO-ZV-zKL" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="eol-7B-Dgm"/>
                             <constraint firstItem="eqJ-mG-M7N" firstAttribute="width" secondItem="kvr-Jv-zbg" secondAttribute="width" id="tPl-WU-sma"/>
                             <constraint firstItem="HPr-Ck-Mmk" firstAttribute="top" secondItem="eqJ-mG-M7N" secondAttribute="bottom" constant="20" id="uV9-oh-7R7"/>
+                            <constraint firstItem="GhO-ZV-zKL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uoA-S7-ywk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lightsSwitchButton" destination="GhO-ZV-zKL" id="u7Q-II-x4H"/>
                         <outletCollection property="lightsViews" destination="kvr-Jv-zbg" collectionClass="NSMutableArray" id="I9d-al-6w7"/>
                         <outletCollection property="lightsViews" destination="eqJ-mG-M7N" collectionClass="NSMutableArray" id="eHR-4d-vBO"/>
                         <outletCollection property="lightsViews" destination="HPr-Ck-Mmk" collectionClass="NSMutableArray" id="aHE-uP-qva"/>
@@ -69,6 +85,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
