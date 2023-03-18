@@ -8,12 +8,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet var lightsViews: [UIView]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        lightsViews.forEach { $0.alpha = 0.3 }
+        
     }
-
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        lightsViews.forEach {
+            $0.layer.cornerRadius = min(lightsViews[0].bounds.width, lightsViews[0].bounds.height) / 2.0
+        }
+    }
+    
 }
 
