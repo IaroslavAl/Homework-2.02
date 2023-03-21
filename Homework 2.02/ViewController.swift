@@ -17,25 +17,27 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lightsViews.forEach { $0.alpha = 0.3 }
         lightsSwitchButton.layer.cornerRadius = 12
     }
     
-    override func viewDidLayoutSubviews() {
+    override func viewWillLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         lightsViews.forEach {
-            $0.layer.cornerRadius = min(lightsViews[0].bounds.width, lightsViews[0].bounds.height) / 2.0
+            $0.layer.cornerRadius = lightsViews[0].frame.width / 2.0
         }
     }
     
     @IBAction func lightsSwitchAction() {
         
+        if lightsSwitchButton.currentTitle != "NEXT" {
+            lightsSwitchButton.setTitle("NEXT", for: .normal)
+        }
+        
         if currentLight == lightsViews.count {
             currentLight = 0
         }
-        
-        lightsSwitchButton.setTitle("NEXT", for: .normal)
+
         lightsViews.forEach { $0.alpha = 0.3 }
         lightsViews[currentLight].alpha = 1
         currentLight += 1
